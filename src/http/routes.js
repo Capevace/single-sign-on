@@ -1,6 +1,9 @@
 const config = require('../config');
 const app = require('./express');
 const passport = require('./passport');
+const jwt = require('jsonwebtoken');
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+const queryString = require('querystring');
 
 const fs = require('fs');
 const loginViewContent = fs.readFileSync(config.loginViewPath).toString();

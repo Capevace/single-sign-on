@@ -5,6 +5,7 @@ users.json
 *.key
 *.crt
 *.csr
+storage/*
 
 # Logs
 logs

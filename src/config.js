@@ -7,7 +7,7 @@ const uuid = require('uuid/v4');
 let sessionSecret = '';
 const sessionSecretPath = path.resolve(__dirname, '../session.key');
 if (fs.existsSync(sessionSecretPath)) {
-	sessionSecret = fs.readFileSync(sessionSecretPath);
+	sessionSecret = fs.readFileSync(sessionSecretPath).toString();
 } else {
 	sessionSecret = uuid();
 
@@ -26,7 +26,7 @@ module.exports = {
 	usersDbPath: path.resolve(__dirname, '../users.json'),
 	sessionSecret: sessionSecret,
 	jwt: {
-		secret: fs.readFileSync(jwtSecretPath),
+		secret: fs.readFileSync(jwtSecretPath).toString(),
 		issuer: 'sso.home.mateffy.me',
 		audience: 'home.mateffy.me',
 		expiresIn: 86400

@@ -10,10 +10,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./passport');
 
-const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
-const jwt = require('jsonwebtoken');
-const queryString = require('querystring');
-
 const app = express();
 
 app.use(helmet());
