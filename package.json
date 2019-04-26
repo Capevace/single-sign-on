@@ -1,0 +1,36 @@
+{
+  "name": "mission-control-sso",
+  "version": "0.0.1",
+  "description": "The SSO/authentication handler for HAL6900 and Mission Control.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Capevace/mission-control-sso.git"
+  },
+  "author": "Lukas Mateffy (@Capevace)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Capevace/mission-control-sso/issues"
+  },
+  "homepage": "https://github.com/Capevace/mission-control-sso#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.3",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "helmet": "^3.16.0",
+    "install": "^0.12.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "npm": "^6.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "uuid": "^3.3.2"
+  }
+}
