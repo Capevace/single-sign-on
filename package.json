@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Capevace/mission-control-sso.git"
+    "url": "git+https://github.com/Capevace/single-sign-on.git"
   },
   "author": "Lukas Mateffy (@Capevace)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Capevace/mission-control-sso/issues"
+    "url": "https://github.com/Capevace/single-sign-on/issues"
   },
-  "homepage": "https://github.com/Capevace/mission-control-sso#readme",
+  "homepage": "https://github.com/Capevace/single-sign-on#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
