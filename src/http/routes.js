@@ -48,7 +48,7 @@ const redirectBackOrOutputJWT = (req, res) => {
 	else res.json(payload);
 };
 
-app.get('/', redirectBackOrOutputJWT);
+app.get('/authenticate', redirectBackOrOutputJWT);
 app.get('/login', (req, res) => {
 	let content = loginViewContent;
 	const error = req.flash('error');
