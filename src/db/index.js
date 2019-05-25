@@ -1,6 +1,11 @@
 const config = require('../config');
 const users = require(config.usersDbPath);
 
+/**
+ * Find a user by their ID.
+ * @param  {string} id The user's ID to look for.
+ * @return {Object}    The user object.
+ */
 module.exports.findUser = function findUser(id) {
 	if (id in users) {
 		return users[id];
