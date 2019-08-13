@@ -41,7 +41,7 @@ if (!fs.existsSync(config.basePath + '/users.json')) {
 
 	fs.writeFileSync(
 		config.basePath + '/users.json', 
-		'{"capevace": {"id": "capevace","password": "$2b$10$4rDoXH4/AeYuSM201LJqIOfuF9Bqd6XKW3.7m8uknQcidcAIy4U/u"}}'
+		'{"admin": {"id": "admin","password": "$2b$10$4rDoXH4/AeYuSM201LJqIOfuF9Bqd6XKW3.7m8uknQcidcAIy4U/u"}}'
 	);
 }
 
