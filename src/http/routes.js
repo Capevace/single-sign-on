@@ -30,7 +30,7 @@ const redirectBackOrOutputJWT = (req, res) => {
 				id: req.user.id
 			}
 		},
-		config.jwt.secret,
+		config.secrets.jwt,
 		{
 			expiresIn: config.jwt.expiresIn,
 			issuer: config.jwt.issuer,

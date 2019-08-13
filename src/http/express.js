@@ -30,7 +30,7 @@ app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
 	session({
-		secret: config.sessionSecret,
+		secret: config.secrets.session,
 		resave: false,
 		saveUninitialized: false,
 		name: 'sso.sid'
