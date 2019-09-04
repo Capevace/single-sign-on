@@ -2,9 +2,9 @@
   "name": "mission-control-sso",
   "version": "0.0.1",
   "description": "The SSO/authentication handler for HAL6900 and Mission Control.",
-  "main": "src/index.js",
+  "main": "app/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node app/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,6 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
-    "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
@@ -32,6 +31,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "rc": "^1.2.8",
+    "session-file-store": "^1.3.1",
     "uuid": "^3.3.2"
   }
 }

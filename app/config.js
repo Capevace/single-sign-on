@@ -4,8 +4,9 @@ const path = require('path');
 const basePath = require('os').homedir() + '/.mission-control-sso';
 const config = require('rc')('mission-control-sso', {
 	basePath,
-	loginViewPath: __dirname + '/views/login.html',
+	viewPath: __dirname + '/views',
 	usersDbPath: basePath + '/users.json',
+	port: 3001,
 	secrets: {
 		jwt: 'secret',
 		session: 'session'
@@ -41,7 +42,7 @@ if (!fs.existsSync(config.basePath + '/users.json')) {
 
 	fs.writeFileSync(
 		config.basePath + '/users.json', 
-		'{"admin": {"id": "admin","password": "$2b$10$4rDoXH4/AeYuSM201LJqIOfuF9Bqd6XKW3.7m8uknQcidcAIy4U/u"}}'
+		'{"hal": {"id": "hal","password": "$2b$10$4rDoXH4/AeYuSM201LJqIOfuF9Bqd6XKW3.7m8uknQcidcAIy4U/u"}}'
 	);
 }
 
