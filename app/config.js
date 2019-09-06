@@ -6,6 +6,7 @@ const config = require('rc')('mission-control-sso', {
 	basePath,
 	viewPath: __dirname + '/views',
 	usersDbPath: basePath + '/users.json',
+	sessionStoragePath: basePath + '/session',
 	port: 3001,
 	secrets: {
 		jwt: 'secret',
@@ -37,13 +38,19 @@ if (!fs.existsSync(config.basePath + '/config')) {
 	);
 }
 
-if (!fs.existsSync(config.basePath + '/users.json')) {
+if (!fs.existsSync(config.usersDbPath)) {
 	console.log('Users file not found. Creating...');
 
 	fs.writeFileSync(
-		config.basePath + '/users.json', 
+		config.usersDbPath, 
 		'{"hal": {"id": "hal","password": "$2b$10$4rDoXH4/AeYuSM201LJqIOfuF9Bqd6XKW3.7m8uknQcidcAIy4U/u"}}'
 	);
+}
+
+if (!fs.existsSync(config.sessionStoragePath)) {
+	console.log('Session storage folder not found. Creating...');
+
+	fs.mkdirSync(config.sessionStoragePath);
 }
 
 

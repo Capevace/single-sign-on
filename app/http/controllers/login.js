@@ -34,6 +34,7 @@ const postLoginFunctions = [passport.authenticate('local', {
 		failureRedirect: '/login',
 		failureFlash: 'Incorrect username or password.'
 	}), finaliseAuth];
+
 function postLogin(req, res) {
 	passport.authenticate('local', {
 		failureRedirect: '/login',

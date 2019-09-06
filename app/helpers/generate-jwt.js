@@ -15,4 +15,6 @@ module.exports = function generateJWT(user) {
 			audience: config.jwt.audience
 		}
 	);
+
+	return token;
 };
