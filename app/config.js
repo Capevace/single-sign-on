@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const basePath = require('os').homedir() + '/.mission-control-sso';
+const basePath = process.env.NODE_ENV === 'production'
+	? '/etc/mission-control-sso'
+	: require('os').homedir() + '/.mission-control-sso';
+
 const config = require('rc')('mission-control-sso', {
 	basePath,
 	viewPath: __dirname + '/views',
