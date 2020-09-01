@@ -1,10 +1,13 @@
 {
-  "name": "mission-control-sso",
-  "version": "0.0.1",
-  "description": "The SSO/authentication handler for HAL6900 and Mission Control.",
+  "name": "@capevace/single-sign-on",
+  "version": "0.1.0",
+  "description": "A small general purpose single sign on server.",
   "main": "app/index.js",
   "scripts": {
     "start": "node app/index.js"
+  },
+  "bin": {
+    "single-sign-on": "./app/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +22,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
+    "commander": "^6.1.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",

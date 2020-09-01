@@ -8,11 +8,11 @@ module.exports = function generateJWT(user) {
 				id: user.id
 			}
 		},
-		config.secrets.jwt,
+		config.auth.secret,
 		{
-			expiresIn: config.jwt.expiresIn,
-			issuer: config.jwt.issuer,
-			audience: config.jwt.audience
+			expiresIn: config.auth.expiresIn,
+			issuer: config.auth.issuer,
+			audience: config.auth.audience
 		}
 	);
 

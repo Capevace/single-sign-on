@@ -23,9 +23,9 @@ app.use(
 				"'self'",
 				'https://fonts.googleapis.com',
 				'https://fonts.gstatic.com',
-				"'unsafe-inline'"
-			]
-		}
+				"'unsafe-inline'",
+			],
+		},
 	})
 );
 app.use(morgan('tiny'));
@@ -34,15 +34,13 @@ app.use(
 	session({
 		store: new FileStore({
 			path: config.basePath + '/session',
-			secret: config.secrets.session,
+			secret: config.http.secret,
 		}),
-		secret: config.secrets.session,
+		secret: config.http.secret,
 		resave: false,
 		saveUninitialized: false,
 		name: 'sso.sid',
-		cookie: {
-			
-		}
+		cookie: {},
 	})
 );
 app.use(flash());
