@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<title>Mission Control Login</title>
-		<link rel="stylesheet" type="text/css" href="/static/reset.css">
-		<link rel="stylesheet" type="text/css" href="/static/style.css">
+		<link rel="stylesheet" type="text/css" href="{{URL}}/static/reset.css">
+		<link rel="stylesheet" type="text/css" href="{{URL}}/static/style.css">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
 	</head>
 	<body>
-		<form action="/login" method="post" class="login">
+		<form action="{{URL}}/login" method="post" class="login">
 			<h1>Sign In</h1>
 			{{ERROR_MSG}}
 			<div class="field">

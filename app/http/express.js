@@ -47,4 +47,6 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.set('base', '/sso');
+
 module.exports = app;

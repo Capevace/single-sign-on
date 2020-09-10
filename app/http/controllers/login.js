@@ -2,6 +2,7 @@ const fs = require('fs');
 const config = require('../../config');
 const passport = require('../passport');
 const finaliseAuth = require('../middleware/finalise-auth');
+const fullUrl = require('../../helpers/full-url');
 
 /**
  * Get the login view.
@@ -22,6 +23,8 @@ function getLoginPage(req, res) {
 		content = content.replace('{{ERROR_MSG}}', '');
 	}
 
+	content = content.replace(/\{\{URL\}\}/g, config.http.url);
+
 	return res.send(content);
 }
 
@@ -31,13 +34,13 @@ function getLoginPage(req, res) {
  * @param  {Response} res The express response object.
  */
 const postLoginFunctions = [passport.authenticate('local', {
-		failureRedirect: '/login',
+		failureRedirect: fullUrl('/login'),
 		failureFlash: 'Incorrect username or password.'
 	}), finaliseAuth];
 
 function postLogin(req, res) {
 	passport.authenticate('local', {
-		failureRedirect: '/login',
+		failureRedirect: fullUrl('/login'),
 		failureFlash: 'Incorrect username or password.'
 	})(req, res, err => finaliseAuth(req, res));
 
@@ -70,7 +73,7 @@ function logout(req, res) {
 		req.logout();
 	}
 
-	return res.redirect(req.query.redirect_url || '/');
+	return res.redirect(req.query.redirect_url || fullUrl('/'));
 }
 
 module.exports = {

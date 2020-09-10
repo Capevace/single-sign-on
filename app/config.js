@@ -14,6 +14,7 @@ let config = require("rc")("mission-control-sso", {
 	usersDbPath: basePath + "/users.json",
 	sessionStoragePath: basePath + "/session",
 	http: {
+		url: '',
 		port: 3001,
 		secret: uuid(),
 	},
@@ -42,6 +43,7 @@ if (!fs.existsSync(config.basePath + "/config")) {
 
 [http]
 secret=${config.http.session}
+;url=
 ;port=3001
 
 [auth]
@@ -56,7 +58,7 @@ if (!fs.existsSync(config.usersDbPath)) {
 
 	fs.writeFileSync(
 		config.usersDbPath,
-		'{"hal": {"id": "hal","password": "$2b$10$4rDoXH4/AeYuSM201LJqIOfuF9Bqd6XKW3.7m8uknQcidcAIy4U/u"}}'
+		'{"admin": {"password": "$2b$10$iOXefTbja0vFE39WKU96xeoQ3qwfH9LIXqWcvI6KljsbDVGAQY92O"}}'
 	);
 }
 
@@ -64,6 +66,10 @@ if (!fs.existsSync(config.sessionStoragePath)) {
 	console.log("Session storage folder not found. Creating...");
 
 	fs.mkdirSync(config.sessionStoragePath);
+}
+
+if (argv.url) {
+	config.http.url = argv.url;
 }
 
 if (argv.port) {

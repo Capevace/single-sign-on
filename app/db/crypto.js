@@ -34,3 +34,12 @@ module.exports.hashPassword = function hashPassword(password) {
 		});
 	});
 };
+
+/**
+ * Generate a hash for a given password, but sync.
+ * @param  {string} password The password to hash.
+ * @return {string}          The hash.
+ */
+module.exports.hashPasswordSync = function hashPasswordSync(password) {
+	return bcrypt.hashSync(password, 10);
+};

@@ -1,6 +1,7 @@
 const crypto = require('./crypto');
 
-(async () => {
-	console.log('Hashing:', process.argv[2]);
-	console.log(await crypto.hashPassword(process.argv[2]));
-})();
+module.exports = async function hashPassword(password) {
+	console.log('Hash: ' + crypto.hashPasswordSync(password));
+
+	process.exit();
+}

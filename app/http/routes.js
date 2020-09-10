@@ -6,11 +6,13 @@ const loginController = require('./controllers/login');
 const apiController = require('./controllers/api');
 const profileController = require('./controllers/profile');
 
+const fullUrl = require('../helpers/full-url');
+
 app.get('/', (req, res) => {
 	if (!req.isAuthenticated()) {
-		res.redirect('/login');
+		res.redirect(fullUrl('/login'));
 	} else {
-		res.redirect('/profile');
+		res.redirect(fullUrl('/profile'));
 	}
 });
 

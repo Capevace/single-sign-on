@@ -1,5 +1,6 @@
 const queryString = require('querystring');
 const generateJWT = require('../../helpers/generate-jwt');
+const fullUrl = require('../../helpers/full-url');
 
 module.exports = function finaliseAuth(req, res) {
 	const redirectUrl = req.query.redirect_url || req.session.redirectUrl;
@@ -10,7 +11,7 @@ module.exports = function finaliseAuth(req, res) {
 		req.session.redirectUrl = redirectUrl;
 		return req.session.save(function(err) {
 			if (err) { console.log('Error saving session', err); }
-			res.redirect('/login');
+			res.redirect(fullUrl('/login'));
 		});
 	}
 
@@ -25,5 +26,5 @@ module.exports = function finaliseAuth(req, res) {
 
 	const url = redirectUrl + '?' + queryString.stringify(payload);
 	if (redirectUrl) res.redirect(url);
-	else res.redirect('/');
+	else res.redirect(fullUrl('/'));
 }

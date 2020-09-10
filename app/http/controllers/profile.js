@@ -1,9 +1,10 @@
 const fs = require('fs');
 const config = require('../../config');
+const fullUrl = require('../../helpers/full-url');
 
 function getProfilePage(req, res) {
 	if (!req.isAuthenticated()) {
-		res.redirect('/login');
+		res.redirect(fullUrl('/login'));
 		return;
 	}
 
