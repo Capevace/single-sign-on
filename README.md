@@ -24,17 +24,14 @@ v0.2.0
 
 ### Options
 ```
-Usage: single-sign-on [options] [command]
+Usage: single-sign-on [options]
 
 Options:
-  -V, --version        output the version number
-  -u, --url <url>      the url SSO is reachable at
-  -p, --port <port>    the port to use for the http server
-  -h, --help           display help for command
-
-Commands:
-  password [password]  hash a password to put it in config
-  help [command]       display help for command
+  -V, --version         output the version number
+  -u, --url <url>       the url SSO is reachable at
+  -p, --port <port>     the port to use for the http server
+  --hash-pw <password>  hash a password to put in config
+  -h, --help            display help for command
 ```
 
 ### Config
