@@ -1,6 +1,6 @@
 {
   "name": "@capevace/single-sign-on",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A small general purpose single sign on server.",
   "main": "app/index.js",
   "scripts": {
