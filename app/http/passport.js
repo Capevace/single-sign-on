@@ -17,11 +17,11 @@ passport.use(
 );
 
 passport.serializeUser(function(user, cb) {
-	cb(null, user.id);
+	cb(null, user.username);
 });
 
-passport.deserializeUser(function(id, cb) {
-	const user = db.findUserById(id);
+passport.deserializeUser(function(username, cb) {
+	const user = db.findUser(username);
 
 	if (!user) return cb(null, false);
 

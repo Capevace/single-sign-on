@@ -6,20 +6,15 @@ const users = require(config.usersDbPath);
  * @param  {string} id The user's ID to look for.
  * @return {Object}    The user object.
  */
-module.exports.findUser = function findUser(id) {
-	if (id in users) {
-		return users[id];
+module.exports.findUser = function findUser(username) {
+	if (username in users) {
+		const user = users[username];
+
+		return {
+			...user,
+			username
+		};
 	}
 
 	return null;
-};
-
-module.exports.findUserById = function findUser(id) {
-	return Object.values(users).reduce((correctUser, user) => {
-		if (correctUser) return correctUser;
-
-		if (user.id === id) return user;
-
-		return null;
-	}, null);
 };

@@ -5,10 +5,10 @@ const argv = require('./helpers/argv');
 
 const basePath =
 	process.env.NODE_ENV === "production"
-		? "/etc/mission-control-sso"
-		: require("os").homedir() + "/.mission-control-sso";
+		? "/etc/single-sign-on"
+		: require("os").homedir() + "/.single-sign-on";
 
-let config = require("rc")("mission-control-sso", {
+let config = require("rc")("single-sign-on", {
 	basePath,
 	viewPath: __dirname + "/views",
 	usersDbPath: basePath + "/users.json",

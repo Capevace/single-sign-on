@@ -11,6 +11,8 @@ function getProfilePage(req, res) {
 	let content = fs.readFileSync(config.viewPath + '/profile.html').toString();
 	content = content.replace('{{TOKEN}}', req.session.jwt);
 
+	content = content.replace(/\{\{URL\}\}/g, config.http.url);
+
 	res.send(content);
 }
 
