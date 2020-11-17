@@ -40,7 +40,10 @@ app.use(
 		resave: false,
 		saveUninitialized: false,
 		name: 'sso.sid',
-		cookie: {},
+		cookie: {
+			httpOnly: true,
+			maxAge: 1000 * 60 * 60 * 24 * 365 // sessions are active for a year
+		},
 	})
 );
 app.use(flash());
