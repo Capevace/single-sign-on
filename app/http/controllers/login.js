@@ -10,20 +10,18 @@ const fullUrl = require('../../helpers/full-url');
  * @param  {Response} res The express response object.
  */
 function getLoginPage(req, res) {
-	let content = fs.readFileSync(config.viewPath + '/login.html').toString();
-
 	const error = req.flash('error');
 
-	if (error.length > 0) {
-		content = content.replace(
+	let content = fs
+		.readFileSync(config.viewPath + '/login.html')
+		.toString()
+		.replace(
 			'{{ERROR_MSG}}',
-			`<p class="error-msg">${error[0]}</p>`
-		);
-	} else {
-		content = content.replace('{{ERROR_MSG}}', '');
-	}
-
-	content = content.replace(/\{\{URL\}\}/g, config.http.url);
+			error.length > 0
+				? `<p class="error-msg">${error[0]}</p>`
+				: ''
+		)
+		.replace(/\{\{URL\}\}/g, config.http.url);
 
 	return res.send(content);
 }
@@ -38,30 +36,30 @@ const postLoginFunctions = [passport.authenticate('local', {
 		failureFlash: 'Incorrect username or password.'
 	}), finaliseAuth];
 
-function postLogin(req, res) {
-	passport.authenticate('local', {
-		failureRedirect: fullUrl('/login'),
-		failureFlash: 'Incorrect username or password.'
-	})(req, res, err => finaliseAuth(req, res));
+// function postLogin(req, res) {
+// 	passport.authenticate('local', {
+// 		failureRedirect: fullUrl('/login'),
+// 		failureFlash: 'Incorrect username or password.'
+// 	})(req, res, err => finaliseAuth(req, res));
 
-	// passport.authenticate('local', (err, user, info) => {
-	// 	if (err) {
-	// 		return next(err);
-	// 	}
+// 	// passport.authenticate('local', (err, user, info) => {
+// 	// 	if (err) {
+// 	// 		return next(err);
+// 	// 	}
 
-	// 	if (!user) {
-	// 		return res.redirect('/login');
-	// 	}
+// 	// 	if (!user) {
+// 	// 		return res.redirect('/login');
+// 	// 	}
 
-	// 	req.logIn(user, (err) => {
-	// 		if (err) {
-	// 			return next(err);
-	// 		}
+// 	// 	req.logIn(user, (err) => {
+// 	// 		if (err) {
+// 	// 			return next(err);
+// 	// 		}
 
-	// 		return finaliseAuth(req, res);
-	// 	});
-	// })(req, res, next);
-}
+// 	// 		return finaliseAuth(req, res);
+// 	// 	});
+// 	// })(req, res, next);
+// }
 
 /**
  * Logout the user.
@@ -69,16 +67,13 @@ function postLogin(req, res) {
  * @param  {Response} res The express response object.
  */
 function logout(req, res) {
-	if (req.isAuthenticated()) {
-		req.logout();
-	}
+	req.logout();
 
-	return res.redirect(req.query.redirect_url || fullUrl('/'));
+	return res.redirect(req.query.redirect_url || fullUrl('/profile'));
 }
 
 module.exports = {
 	getLoginPage,
-	postLogin,
 	postLoginFunctions,
 	logout
 };
