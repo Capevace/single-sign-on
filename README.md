@@ -37,6 +37,10 @@ Options:
 ### Config
 A config file for mission-control will be created at `$HOME_DIR/.mission-control-sso/config`. This can also be used to configure mission-control. However, options passed as command line arguments override settings in this file.
 
+#### Default Credentials
+**Username**: admin
+**Password**: admin
+
 ## Changelog
 ### Version 0.3.0
 - Changed config location from ```.mission-control-sso``` to ```.single-sign-on```
